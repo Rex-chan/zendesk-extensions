@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 import "./google-sidebar-base.css"
 
 export const config: PlasmoCSConfig = {
-  matches: ["https://www.google.com/*"]
+  matches: ["https://www.google.com/*","https://www.plasmo.com/"]
 }
 
 // Inject into the ShadowDOM
@@ -20,7 +20,7 @@ export const getStyle = () => {
 export const getShadowHostId = () => "plasmo-google-sidebar"
 
 const GoogleSidebar = () => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     document.body.classList.toggle("plasmo-google-sidebar-show", isOpen)

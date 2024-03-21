@@ -19,7 +19,7 @@ const PlasmoOverlay = () => {
       style={{
         padding: 12
       }}>
-      CSUI OVERLAY FIXED POSITION
+      CSUI  OVERLAY FIXED POSITION
     </span>
   )
 }
