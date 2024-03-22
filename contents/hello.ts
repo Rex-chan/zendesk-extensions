@@ -12,4 +12,4 @@ const currentMinute = now.getMinutes();
 const currentSecond = now.getSeconds();
 
 // 输出当前的小时、分钟和秒
-console.log(`11Current time: ${currentHour}:${currentMinute}:${currentSecond}`);
+console.log(`Current time: ${currentHour}:${currentMinute}:${currentSecond}`);

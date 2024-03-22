@@ -1,7 +1,8 @@
 import iconBase64 from "data-base64:~assets/icon.png"
 import cssText from "data-text:~/contents/google-sidebar.css"
-import type { PlasmoCSConfig } from "plasmo"
-import { useEffect, useState } from "react"
+import type {PlasmoCSConfig} from "plasmo"
+import {useEffect, useState} from "react"
+import { useStorage } from "@plasmohq/storage/hook"
 
 // Inject to the webpage itself
 import "./google-sidebar-base.css"
@@ -9,7 +10,6 @@ import "./google-sidebar-base.css"
 export const config: PlasmoCSConfig = {
   matches: ["https://www.google.com/*","https://www.plasmo.com/"]
 }
-
 // Inject into the ShadowDOM
 export const getStyle = () => {
   const style = document.createElement("style")
@@ -21,7 +21,8 @@ export const getShadowHostId = () => "plasmo-google-sidebar"
 
 const GoogleSidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
-
+  const [token] = useStorage<string>("access_token")
+  console.log(token);
   useEffect(() => {
     document.body.classList.toggle("plasmo-google-sidebar-show", isOpen)
   }, [isOpen])
@@ -32,6 +33,7 @@ const GoogleSidebar = () => {
         {isOpen ? "🟡 Close" : "🟣 Open"}
       </button>
       <img src={iconBase64} alt="Extension Icon" width={128} height={128} />
+      {token}
       <p>The Easiest Way to Build, Test, and Ship browser extensions</p>
     </div>
   )
