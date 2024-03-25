@@ -36,14 +36,19 @@ function IndexPopup() {
       })
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then(async (data) => {
         if (data.code === 200) {
           if (isRemember) {
             storage.set("userInfo", {username: username, password: password})
-          }else {
+          } else {
             storage.set("userInfo", '')
           }
           setToken(data.data.access_token)
+          let [tab] = await chrome.tabs.query({active: true, currentWindow: true})
+          chrome.scripting.executeScript({
+            target: {tabId: tab.id},
+            function: reloadContentPage
+          })
         } else {
           alert(data.msg)
         }
@@ -54,7 +59,9 @@ function IndexPopup() {
         console.log(err)
       })
   };
-
+  function reloadContentPage() {
+    location.reload()
+  }
   function handleLogout() {
     setToken(null);
     if (!isRemember){

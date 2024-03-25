@@ -33,7 +33,13 @@
       "https://*/*"
     ],
     "permissions": [
-      "tabs"
-    ]
+      "storage",
+      "activeTab",
+      "scripting",
+      "tabs",
+      "webRequest",
+      "declarativeContent"
+    ],
+    "name": "zendesk客服插件"
   }
 }

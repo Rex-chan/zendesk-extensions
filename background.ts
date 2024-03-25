@@ -1,13 +1,15 @@
 export {}
 import { Storage } from "@plasmohq/storage"
+
+const storage = new Storage()
+
 console.log("background.ts")
 
-async function main() {
-    fetchUserInfo()
+function main() {
+     fetchUserInfo().then(res => console.log(res))
 }
 async function fetchUserInfo() {
     const storage = new Storage()
-    const data = await storage.get("access_token") // "value"
-    console.log(data);
+    return await storage.get("access_token") // "value"
 }
 main()
