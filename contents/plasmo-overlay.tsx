@@ -3,7 +3,7 @@ import type { PlasmoCSConfig } from "plasmo"
 
 export const config: PlasmoCSConfig = {
   matches: ["https://www.plasmo.com/*"],
-  css: ["font.css"]
+  // css: ["font.css"]
 }
 
 export const getStyle = () => {

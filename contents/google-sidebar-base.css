@@ -1,17 +1,54 @@
 :root,
-#plasmo-google-sidebar:host {
-  --plasmo-google-sidebar-width: 700px;
+#zendesk-sidebar:host {
+  --zendesk-sidebar-width: 700px;
 }
 
-/*body.plasmo-google-sidebar-show,*/
-/*body.plasmo-google-sidebar-show * {*/
-/*  max-width: calc(100vw - var(--plasmo-google-sidebar-width));*/
+/*body.zendesk-sidebar-show,*/
+/*body.zendesk-sidebar-show * {*/
+/*  max-width: calc(100vw - var(--zendesk-sidebar-width));*/
 /*}*/
 
-#plasmo-google-sidebar {
+#zendesk-sidebar {
   position: fixed;
-  z-index: 240;
-  top: 0px;
-  right: 0px;
+  z-index: 99;
+  top: 50px;
+  right: 50px;
+  bottom: 50px;
   color: #fff;
+}
+#sidebar {
+  position: absolute;
+
+  background-color: #1b141d;
+  width: var(--zendesk-sidebar-width);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  transition: all 0.35s ease;
+}
+
+#sidebar.open {
+  left: calc(var(--zendesk-sidebar-width) * -1);
+}
+
+#sidebar.closed {
+  left: 50px;
+}
+
+#sidebar p {
+  padding: 0 24px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 24px;
+  font-family: sans-serif;
+}
+.sidebar-toggle {
+  font-size: 16px;
+  position: fixed;
+  right: 6px;
+  bottom: 50%;
+  background-clip: #fff;
 }

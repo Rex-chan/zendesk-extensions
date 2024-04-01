@@ -4,7 +4,12 @@ import logoBase64 from "data-base64:~assets/big-logo-white.png"
 // @ts-ignore
 import {useStorage} from "@plasmohq/storage/hook"
 import { Storage } from "@plasmohq/storage"
+import Button from "antd/es/button"
+import DatePicker from "antd/es/date-picker"
 
+import { ThemeProvider } from "~theme"
+import { SearchOutlined } from '@ant-design/icons';
+import Table from "~node_modules/antd/es/table";
 function IndexPopup() {
   const storage = new Storage()
   const [username, setUsername] = useState('');
@@ -44,12 +49,13 @@ function IndexPopup() {
             storage.set("userInfo", '')
           }
           setToken(data.data.access_token)
-          let [tab] = await chrome.tabs.query({active: true, currentWindow: true})
+          /*let [tab] = await chrome.tabs.query({active: true, currentWindow: true})
           chrome.scripting.executeScript({
             target: {tabId: tab.id},
             function: reloadContentPage
-          })
+          })*/
         } else {
+          setToken(null);
           alert(data.msg)
         }
       })
@@ -69,14 +75,66 @@ function IndexPopup() {
       setPassword('')
     }
   }
-
+  const columns = [
+    {
+      title: '姓名',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: '年龄',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: '住址',
+      dataIndex: 'address',
+      key: 'address',
+    },
+  ];
+  const dataSource = [
+    {
+      key: '1',
+      name: '胡彦斌',
+      age: 32,
+      address: '西湖区湖底公园1号',
+    },
+    {
+      key: '2',
+      name: '胡彦祖',
+      age: 42,
+      address: '西湖区湖底公园1号',
+    },
+  ];
   return (
     <div className="box">
-      {token ? (
-        <p>用户已登录</p>
-      ) : (
-        <p>用户未登录</p>
-      )}
+      {/*{token ? (*/}
+      {/*  <p>用户已登录</p>*/}
+      {/*) : (*/}
+      {/*  <p>用户未登录</p>*/}
+      {/*)}*/}
+
+      {/*<DatePicker placeholder="select date" />*/}
+      {/*<Table dataSource={dataSource} columns={columns} />;*/}
+
+      {/*<ThemeProvider>*/}
+      {/*  <div*/}
+      {/*    style={{*/}
+      {/*      display: "flex",*/}
+      {/*      flexDirection: "column",*/}
+      {/*      padding: 16,*/}
+      {/*      width:500*/}
+      {/*    }}>*/}
+      {/*    <h1>*/}
+      {/*      Welcome to your <a href="https://www.plasmo.com">Plasmo</a> Extension!*/}
+      {/*    </h1>*/}
+      {/*    <DatePicker placeholder="select date11" getPopupContainer={triggerNode => triggerNode.parentNode}/>*/}
+
+      {/*  </div>*/}
+      {/*</ThemeProvider>*/}
+      <p>UI Test Start</p>
+      <DatePicker placeholder="select date" />
+      <p>UI Test end </p>
       <div className="big-title">
         <div className="logo">
           <img src={logoBase64} alt="Micas"/>

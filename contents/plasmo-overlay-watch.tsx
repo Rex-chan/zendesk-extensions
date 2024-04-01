@@ -3,7 +3,7 @@ import type {
   PlasmoGetOverlayAnchor,
   PlasmoWatchOverlayAnchor
 } from "plasmo"
-
+import DatePicker from "antd/es/date-picker"
 export const config: PlasmoCSConfig = {
   matches: ["https://www.plasmo.com/*"]
 }
@@ -30,7 +30,8 @@ const PlasmoPricingExtra = () => (
       position: "absolute",
       top: 44
     }}>
-    CSUI OVERLAY WATCH ANCHOR
+    CSUI OVERLAY WATCH ANCHOR11
+    <DatePicker placeholder="select date" />
   </span>
 )
 

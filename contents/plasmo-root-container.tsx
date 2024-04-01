@@ -6,7 +6,7 @@ import type {
 } from "plasmo"
 import type { FC } from "react"
 import { createRoot } from "react-dom/client"
-
+import DatePicker from "antd/es/date-picker"
 export const config: PlasmoCSConfig = {
   matches: ["https://www.plasmo.com/*"]
 }
@@ -37,6 +37,7 @@ const PlasmoOverlay: FC<PlasmoCSUIProps> = () => {
         transform: "translateY(-24px) translateX(42px)"
       }}>
       CSUI ROOT CONTAINER
+      <DatePicker placeholder="select date" />
     </span>
   )
 }

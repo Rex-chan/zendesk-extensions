@@ -1,10 +1,27 @@
+:root,
+#zendesk-sidebar:host {
+  --zendesk-sidebar-width: 700px;
+}
+
+/*body.zendesk-sidebar-show,*/
+/*body.zendesk-sidebar-show * {*/
+/*  max-width: calc(100vw - var(--zendesk-sidebar-width));*/
+/*}*/
+
+#zendesk-sidebar {
+  position: fixed;
+  z-index: 99;
+  top: 50px;
+  right: 50px;
+  bottom: 50px;
+  color: #fff;
+}
 #sidebar {
   position: absolute;
 
   background-color: #1b141d;
-  width: var(--plasmo-google-sidebar-width);
+  width: var(--zendesk-sidebar-width);
   height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,11 +31,11 @@
 }
 
 #sidebar.open {
-  left: calc(var(--plasmo-google-sidebar-width) * -1);
+  left: calc(var(--zendesk-sidebar-width) * -1);
 }
 
 #sidebar.closed {
-  left: 0px;
+  left: 50px;
 }
 
 #sidebar p {
@@ -28,7 +45,6 @@
   font-size: 24px;
   font-family: sans-serif;
 }
-
 .sidebar-toggle {
   font-size: 16px;
   position: fixed;
